@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a New Building</title>
+</head>
+<body>
+    <h1>Add a New Building</h1>
+    <form action="/building/new" method="post">
+        <label for="num_flats">Number of Flats:</label>
+        <input type="number" name="num_flats" required><br><br>
+        <label for="water_supply">Water Supply:</label>
+        <select name="water_supply" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br><br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

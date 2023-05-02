@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Building</title>
+</head>
+<body>
+    <h1>Edit Building</h1>
+    <form action="/building/{{ building.id }}/edit" method="post">
+        <label for="num_flats">Number of Flats:</label>
+        <input type="number" name="num_flats" value="{{ building.num_flats }}" required><br><br>
+        <label for="water_supply">Water Supply:</label>
+        <select name="water_supply" required>
+            <option value="1" {% if building.water_supply == 1 %}selected{% endif %}>Yes</option>
+            <option value="0" {% if building.water_supply == 0 %}selected{% endif %}>No</option>
+        </select><br><br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buildings List</title>
 </head>
 <body>
-    <h1 style="color:green">This is Water Management System Project page</h1>
+    <h1>Buildings List</h1>
+    <a href="/building/new">Add a New Building</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Number of Flats</th>
+                <th>Water Supply</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for building in buildings %}
+                <tr>
+                    <td>{{ building.id }}</td>
+                    <td>{{ building.num_flats }}</td>
+                    <td>{{ building.water_supply }}</td>
+                    <td>
+                        <a href="/building/{{ building.id }}">Edit</a>
+                        <form action="/building/{{ building.id }}/delete" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
